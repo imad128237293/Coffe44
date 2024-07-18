@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+<header>
+    <img src="Screenshot 2024-01-24 134856.jpg" alt="logo">
+    <span>goeditor</span>
+</header>  
+
+<div class="ed">
+<div >
+    <font size=4>Code-Html</font><br>
+    <textarea id="Code-Html" ></textarea>
+</div>
+<div >
+    <font size=4>Code-Css</font><br>
+    <textarea id="Code-Css" ></textarea>
+</div>
+<div >
+    <font size=4>Code-Js</font><br>
+    <textarea id="Code-Js" ></textarea>
+</div>
+</div>
+
+<div class="editor1">
+    <iframe id="output" frameborder="1"></iframe>
+</div>
+
+<script type="text/javascript">
+    function run() {
+        let CodeHtml = document.querySelector(".ed #Code-Html").value;
+        let CodeCss = "<style>"+document.querySelector(".ed #Code-Css").value+"</style>";
+        let CodeJs = document.querySelector(".ed #Code-Js").value;
+        let output = document.querySelector(".editor1 #output");
+        output.contentDocument.body.innerHTML = CodeHtml+CodeCss ;
+        output.contentWindow.eval(CodeJs);
+    }
+    document.querySelector(".ed #Code-Html").addEventListener("keyup",run);
+    document.querySelector(".ed #Code-Css").addEventListener("keyup",run);
+    document.querySelector(".ed #Code-Js").addEventListener("keyup",run);
+</script>
+
+
+
+
+</body>
+</html>
